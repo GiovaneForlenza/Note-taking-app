@@ -14,20 +14,12 @@ function formatDate(dateISO: string): string {
 
 export default function NoteCard({ note }: NoteCardProps) {
   const navigate = useNavigate();
-  const tagMeta = getTag(note.tag);
 
   return (
     <div
       onClick={() => navigate(`/note/${note.id}`)}
       className="focus-ring group relative flex h-full cursor-pointer flex-col rounded-lg rounded-tl-none bg-card p-3 text-left shadow-card transition-all duration-150 hover:-translate-y-0.5 hover:shadow-cardHover"
     >
-      {/* Die-cut tab, colored per tag — the card-catalog signature */}
-      {/* <span
-        aria-hidden
-        className="absolute -left-1 -top-3 h-3 w-16 rounded-t-md"
-        style={{ backgroundColor: tagMeta.swatch }}
-      /> */}
-
       <div className="mb-3 flex items-start justify-between gap-3">
         <h3 className="font-display text-lg font-medium leading-snug text-ink">{note.title}</h3>
       </div>
