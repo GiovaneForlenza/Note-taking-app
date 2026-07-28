@@ -1,6 +1,5 @@
 import { useNavigate } from 'react-router-dom';
 import type { Note } from '../types/note';
-import { getTag } from '../types/note';
 import TagBadge from './TagBadge';
 
 interface NoteCardProps {
