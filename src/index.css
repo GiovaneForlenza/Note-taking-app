@@ -1,0 +1,50 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    color-scheme: light;
+  }
+
+  body {
+    @apply bg-paper font-body text-ink antialiased;
+    background-image: theme('backgroundImage.grain');
+  }
+
+  ::selection {
+    background-color: #b8842e55;
+  }
+}
+
+@layer utilities {
+  .focus-ring {
+    @apply outline-none ring-2 ring-ledger/40 ring-offset-2 ring-offset-paper;
+  }
+}
+
+/* Rich text editor content styling */
+.note-prose {
+  @apply font-body text-[15px] leading-relaxed text-ink;
+}
+
+.note-prose u {
+  text-decoration-color: theme('colors.amber.DEFAULT');
+  text-underline-offset: 3px;
+}
+
+.note-prose strong {
+  @apply text-ink;
+  font-weight: 700;
+}
+
+.note-prose mark {
+  border-radius: 2px;
+  padding: 0 2px;
+}
+
+.note-prose:empty::before {
+  content: attr(data-placeholder);
+  color: theme('colors.muted');
+  pointer-events: none;
+}
