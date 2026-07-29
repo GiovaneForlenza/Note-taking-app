@@ -11,6 +11,12 @@ function todayISO(): string {
   return new Date().toISOString().slice(0, 10);
 }
 
+function daysAgoISO(days: number): string {
+  const d = new Date();
+  d.setDate(d.getDate() - days);
+  return d.toISOString().slice(0, 10);
+}
+
 function seedNotes(): Note[] {
   const now = new Date().toISOString();
   return [
@@ -54,9 +60,73 @@ function seedNotes(): Note[] {
       id: uid(),
       title: 'Renew passport',
       description: 'Expires next month — book an appointment this week.',
-      content: '<p>Bring old passport, printed photo, and the <strong>confirmation email</strong>.</p>',
+      content:
+        '<p>Bring old passport, printed photo, and the <strong>confirmation email</strong>.</p>',
       tag: 'urgent',
       date: todayISO(),
+      createdAt: now,
+      updatedAt: now,
+    },
+    {
+      id: uid(),
+      title: 'Reading list: systems design',
+      description: 'Papers and posts to get through before the interview loop.',
+      content:
+        '<p>Start with the <strong>consistent hashing</strong> paper, then the ' +
+        '<mark style="background-color:#ADD8E6">load balancing</mark> chapter. ' +
+        '<u>Skip the sharding appendix</u> for now — revisit later.</p>',
+      tag: 'reading',
+      date: daysAgoISO(2),
+      createdAt: now,
+      updatedAt: now,
+    },
+    {
+      id: uid(),
+      title: 'Old apartment lease notes',
+      description: 'Terms from the 2022 lease, kept for reference after moving out.',
+      content:
+        '<p>Security deposit was <strong>$1,400</strong>, returned in full. Landlord contact ' +
+        'kept on file in case the new building asks for a reference.</p>',
+      tag: 'archive',
+      date: daysAgoISO(340),
+      createdAt: now,
+      updatedAt: now,
+    },
+    {
+      id: uid(),
+      title: 'Standup notes — sprint 14',
+      description: 'Blockers and callouts from the Tuesday sync.',
+      content:
+        '<p><mark style="background-color:#F5E663">Blocked</mark> on the staging deploy until infra ' +
+        'finishes the migration. <u>Design</u> is unblocked and starting review today. ' +
+        '<strong>No changes</strong> to the sprint scope.</p>',
+      tag: 'work',
+      date: daysAgoISO(1),
+      createdAt: now,
+      updatedAt: now,
+    },
+    {
+      id: uid(),
+      title: 'Birthday gift ideas for mom',
+      description: 'Running list before her birthday next month.',
+      content:
+        '<p>She mentioned the <strong>ceramics class</strong> a few times — maybe a studio gift card. ' +
+        '<mark style="background-color:#F3B8C9">Backup idea</mark>: the scarf from the shop downtown.</p>',
+      tag: 'personal',
+      date: daysAgoISO(5),
+      createdAt: now,
+      updatedAt: now,
+    },
+    {
+      id: uid(),
+      title: 'Book highlights: Atomic Habits',
+      description: 'Passages worth remembering from the last few chapters.',
+      content:
+        '<p>Core idea: <strong>habits are the compound interest of self-improvement</strong>. ' +
+        '<mark style="background-color:#B8E6B0">Identity-based habits</mark> stick better than outcome-based ones. ' +
+        '<u>Reread the chapter on habit stacking.</u></p>',
+      tag: 'reading',
+      date: daysAgoISO(12),
       createdAt: now,
       updatedAt: now,
     },

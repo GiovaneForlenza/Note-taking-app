@@ -17,7 +17,7 @@ export default function TagSelect({ value, onChange, disabled }: TagSelectProps)
             type="button"
             disabled={disabled}
             onClick={() => onChange(tag.id)}
-            className={`focus-ring inline-flex items-center gap-1.5 rounded-full border px-2 py-0.5 font-mono text-xs font-medium uppercase tracking-wide transition-colors disabled:cursor-not-allowed disabled:opacity-60 ${
+            className={`-flex items-center gap-1.5 rounded-full border px-2 py-0.5 font-mono text-xs font-medium uppercase tracking-wide transition-colors disabled:cursor-not-allowed disabled:opacity-60 ${
               active
                 ? 'border-transparent text-white'
                 : 'border-line bg-card text-muted hover:text-ink'

@@ -96,7 +96,7 @@ export default function RichTextEditor({
   return (
     <div className="rounded-lg border border-line bg-card">
       {editable && (
-        <div className="flex flex-wrap items-center gap-1.5 border-b border-line px-3 py-2">
+        <div className="flex flex-wrap items-center gap-1.5 border-b border-line px-1.5 py-1">
           <ToolbarButton active={activeMarks.bold} onClick={() => exec('bold')} label="Bold">
             <span className="font-serif font-bold">B</span>
           </ToolbarButton>
@@ -122,7 +122,7 @@ export default function RichTextEditor({
               </span>
             </ToolbarButton>
             {highlightOpen && (
-              <div className="absolute left-0 top-9 z-10 flex items-center gap-1.5 rounded-md border border-line bg-card p-2 shadow-cardHover">
+              <div className="absolute left-0 top-9 z-10 flex flex-wrap items-center gap-1.5 rounded-md border border-line bg-card p-2 shadow-cardHover sm:flex-nowrap">
                 {HIGHLIGHT_COLORS.map((c) => (
                   <button
                     key={c.value}
@@ -130,17 +130,17 @@ export default function RichTextEditor({
                     aria-label={`Highlight ${c.name}`}
                     onMouseDown={(e) => e.preventDefault()}
                     onClick={() => applyHighlight(c.value)}
-                    className="focus-ring h-6 w-6 rounded-full border border-black/10 transition-transform hover:scale-110"
+                    className="h-6 w-6 rounded-full border border-black/30 transition-transform hover:scale-110"
                     style={{ backgroundColor: c.value }}
                   />
                 ))}
-                <span className="mx-1 h-5 w-px bg-line" />
+                <span className="h-0 w-px bg-line sm:mx-1 sm:h-5" />
                 <button
                   type="button"
                   aria-label="Remove highlight"
                   onMouseDown={(e) => e.preventDefault()}
                   onClick={() => applyHighlight(null)}
-                  className="focus-ring flex h-6 w-6 items-center justify-center rounded-full border border-line text-[11px] text-muted hover:text-ink"
+                  className="flex h-6 w-6 items-center justify-center rounded-full border border-line text-[11px] text-muted hover:text-ink"
                 >
                   ×
                 </button>
@@ -152,7 +152,7 @@ export default function RichTextEditor({
 
       <div
         ref={ref}
-        className="note-prose min-h-[220px] px-4 py-3"
+        className="note-prose min-h-[220px] px-1.5 py-1"
         contentEditable={editable}
         suppressContentEditableWarning
         data-placeholder={placeholder}

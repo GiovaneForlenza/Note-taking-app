@@ -133,12 +133,14 @@ export default function NoteDetail({
               </div>
             </div>
           ) : (
-            <div>
+            <div className="">
               <h1 className="font-display text-2xl font-medium text-ink sm:text-3xl">
                 {draft.title}
-              </h1>{' '}
-              <span className="font-mono text-xs text-muted">{formattedDate}</span>
-              <TagBadge tag={draft.tag} size="md" />
+              </h1>
+              <div className="flex flex-wrap items-center justify-between gap-2">
+                <span className="font-mono text-xs text-muted">{formattedDate}</span>
+                <TagBadge tag={draft.tag} size="md" />
+              </div>
             </div>
           )}
         </div>
