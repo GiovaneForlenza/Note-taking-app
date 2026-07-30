@@ -40,8 +40,8 @@ export default function Dashboard({ notes }: DashboardProps) {
         <StatsBar notes={notes} />
       </section>
 
-      <section className="mb-6 flex flex-col justify-between gap-4 sm:flex-row sm:items-center">
-        <div className="flex flex-wrap items-center gap-4">
+      <section className="mb-6 flex flex-col gap-4 sm:flex-row sm:items-center">
+        <div className="flex w-full flex-wrap items-center gap-4">
           <div className="relative w-full">
             <svg
               aria-hidden
@@ -63,7 +63,7 @@ export default function Dashboard({ notes }: DashboardProps) {
             />
           </div>
 
-          <div className="flex flex-wrap items-center justify-center gap-4">
+          <div className="flex w-fit flex-wrap items-center justify-center gap-4">
             <button
               type="button"
               onClick={() => setActiveTag('all')}
@@ -92,14 +92,15 @@ export default function Dashboard({ notes }: DashboardProps) {
             ))}
           </div>
         </div>
-
-        <button
-          type="button"
-          onClick={() => navigate('/note/new')}
-          className="focus-ring inline-flex items-center justify-center gap-2 rounded-md bg-ledger px-4 py-2 font-mono text-sm font-medium text-white shadow-card transition-colors hover:bg-ledger-dark"
-        >
-          <span className="text-base leading-none">+</span> New note
-        </button>
+        <div className="w-full sm:w-fit">
+          <button
+            type="button"
+            onClick={() => navigate('/note/new')}
+            className="w-full rounded-md bg-ledger px-4 py-2 font-mono text-sm font-medium text-white shadow-card transition-colors hover:bg-ledger-dark"
+          >
+            + New note
+          </button>
+        </div>
       </section>
 
       <NotesGrid notes={filteredNotes} />
